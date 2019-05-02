@@ -1,4 +1,4 @@
-package com.ufcspa.patient;
+package com.ufcspa;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
