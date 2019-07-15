@@ -7,8 +7,10 @@ import org.apache.camel.Processor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.google.gson.JsonObject;
 import com.zenvia.si.config.Config;
 import com.zenvia.si.connectors.Consumer;
+import com.zenvia.si.event.EventStream;
 import com.zenvia.si.event.Metadata;
 import com.zenvia.si.helper.JsonHelper;
 
@@ -33,7 +35,15 @@ public class RoutesProcessor  implements Processor {
 	@Override
 	public void process(Exchange exchange) throws Exception {
 		String body = (String) exchange.getIn().getBody();
-		Metadata metadata = jsonHelper.fromJson(body, Metadata.class);
+		
+		EventStream event = jsonHelper.fromJson(body, EventStream.class);
+		
+		if(event.getMetadata() == null) {
+			log.info("Stream not accepted for APP {} - Body {} ", body, config.getApplicationSource());
+			return;
+		}
+		
+		Metadata metadata = event.getMetadata();
 		
 		log.info("[METADATA] {} ", metadata);
 		
@@ -43,7 +53,10 @@ public class RoutesProcessor  implements Processor {
 			for (Consumer consumer : eventProcessors) {
 				
 				if(consumer.getEvent().equalsIgnoreCase(metadata.getEvent())) {
-					consumer.process(metadata, body);
+					JsonObject jsonObject = jsonHelper.fromJson(body, JsonObject.class);
+					
+					String content = jsonObject.get("content").toString();
+					consumer.process(metadata, content);
 					
 				}
 			}
@@ -55,7 +68,7 @@ public class RoutesProcessor  implements Processor {
 	}
 
 	private boolean streamProducedFromSameSource(Metadata metadata) {
-		return !config.getApplicationSource().equals(metadata.getApplicationSource());
+		return config.getApplicationSource().equals(metadata.getApplicationSource());
 	}
 
 }

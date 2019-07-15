@@ -72,18 +72,9 @@ public class Routes extends RouteBuilder {
 		uri.append("=");
 		uri.append(config.getApplicationSource());
 		
-//		if(isConsumer) {
-//			uri = addGroupIdConfiguration(uri);
-//		}
-//		
 		return uri.toString();
 	}
 
-	private StringBuilder addGroupIdConfiguration(StringBuilder uri) {
-		
-		
-		return uri;
-}
 	
 	public String buildKafkaURI(String topicName) {
 		StringBuilder uri = new StringBuilder();

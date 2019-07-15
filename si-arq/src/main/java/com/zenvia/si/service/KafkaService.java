@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zenvia.si.config.Config;
+import com.zenvia.si.event.Content;
 import com.zenvia.si.event.EventStream;
 import com.zenvia.si.event.Metadata;
 import com.zenvia.si.helper.DateTimeHelper;
@@ -27,11 +28,11 @@ public class KafkaService {
 		this.producerTemplate = producerTemplate;
 	}
 
-	public void send(Object content, String route, String event, String action) {
+	public void send(Content content, String route, String event, String action) {
 		log.info("Preparing Stream...");
 		
-		Metadata metadata = buidMetadata(event, action);
-		EventStream stream = buildEventStream(content, metadata);
+		Metadata metadata = buildMetadata(event, action);
+		EventStream stream = buildEventStream(metadata, content);
 		
 		sendStream(stream, route);
 		
@@ -47,7 +48,7 @@ public class KafkaService {
 		producerTemplate.sendBody(("direct:" + route), json);
 	}
 
-	private EventStream buildEventStream(Object content, Metadata metadata) {
+	private EventStream buildEventStream(Metadata metadata, Content content) {
 		EventStream event = EventStream
 				.builder()
 					.metadata(metadata)
@@ -56,7 +57,7 @@ public class KafkaService {
 		return event;
 	}
 
-	private Metadata buidMetadata(String event, String action) {
+	private Metadata buildMetadata(String event, String action) {
 		Metadata metadata = Metadata
 				.builder()
 					.event(event)
