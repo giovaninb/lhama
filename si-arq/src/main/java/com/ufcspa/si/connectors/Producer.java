@@ -1,4 +1,4 @@
-package com.zenvia.si.connectors;
+package com.ufcspa.si.connectors;
 
 public interface Producer {
 	

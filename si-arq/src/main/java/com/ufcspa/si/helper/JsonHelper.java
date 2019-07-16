@@ -1,4 +1,4 @@
-package com.zenvia.si.helper;
+package com.ufcspa.si.helper;
 
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;

@@ -1,15 +1,15 @@
-package com.zenvia.si.service;
+package com.ufcspa.si.service;
 
 import org.apache.camel.ProducerTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.zenvia.si.config.Config;
-import com.zenvia.si.event.Content;
-import com.zenvia.si.event.EventStream;
-import com.zenvia.si.event.Metadata;
-import com.zenvia.si.helper.DateTimeHelper;
-import com.zenvia.si.helper.JsonHelper;
+import com.ufcspa.si.config.Config;
+import com.ufcspa.si.event.Content;
+import com.ufcspa.si.event.EventStream;
+import com.ufcspa.si.event.Metadata;
+import com.ufcspa.si.helper.DateTimeHelper;
+import com.ufcspa.si.helper.JsonHelper;
 
 import lombok.extern.slf4j.Slf4j;
 

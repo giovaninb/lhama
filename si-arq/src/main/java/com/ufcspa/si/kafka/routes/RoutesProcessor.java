@@ -1,4 +1,4 @@
-package com.zenvia.si.kafka.routes;
+package com.ufcspa.si.kafka.routes;
 
 import java.util.List;
 
@@ -8,11 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.google.gson.JsonObject;
-import com.zenvia.si.config.Config;
-import com.zenvia.si.connectors.Consumer;
-import com.zenvia.si.event.EventStream;
-import com.zenvia.si.event.Metadata;
-import com.zenvia.si.helper.JsonHelper;
+import com.ufcspa.si.config.Config;
+import com.ufcspa.si.connectors.Consumer;
+import com.ufcspa.si.event.EventStream;
+import com.ufcspa.si.event.Metadata;
+import com.ufcspa.si.helper.JsonHelper;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -1,6 +1,6 @@
-package com.zenvia.si.connectors;
+package com.ufcspa.si.connectors;
 
-import com.zenvia.si.event.Metadata;
+import com.ufcspa.si.event.Metadata;
 
 public interface Consumer {
 	

@@ -1,4 +1,4 @@
-package com.zenvia.si.kafka.routes;
+package com.ufcspa.si.kafka.routes;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import org.apache.camel.builder.RouteBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.zenvia.si.config.Config;
-import com.zenvia.si.connectors.Consumer;
-import com.zenvia.si.connectors.Producer;
+import com.ufcspa.si.config.Config;
+import com.ufcspa.si.connectors.Consumer;
+import com.ufcspa.si.connectors.Producer;
 
 @Component
 public class Routes extends RouteBuilder {

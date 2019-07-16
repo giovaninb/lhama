@@ -1,4 +1,4 @@
-package com.zenvia.si.config;
+package com.ufcspa.si.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.ComponentScan;
