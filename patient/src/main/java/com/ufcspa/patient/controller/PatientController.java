@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ufcspa.patient.model.Patient;
 import com.ufcspa.si.helper.JsonHelper;
+
+import fhir.administration.resources.Patient;
 
 @RestController
 @RequestMapping("patient")
@@ -23,13 +24,9 @@ public class PatientController {
 	@GetMapping
 	public ResponseEntity<String> findCustomerByName() throws Exception {
 		
-//		log.info("Patient name: {} ", "Thafarel");
-		
 		Patient patient = Patient.builder()
 									.name("Thafarel")
 								.build();
-		
-//		log.info("Patient data: {} ", patient);
 		
 		return new ResponseEntity<>(jsonHelper.toJson(patient), HttpStatus.OK);
 	}
