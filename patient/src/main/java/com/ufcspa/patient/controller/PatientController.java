@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ufcspa.si.helper.JsonHelper;
 
-import fhir.administration.resources.Patient;
-
 @RestController
 @RequestMapping("patient")
 public class PatientController {
@@ -24,11 +22,8 @@ public class PatientController {
 	@GetMapping
 	public ResponseEntity<String> findCustomerByName() throws Exception {
 		
-		Patient patient = Patient.builder()
-									.name("Thafarel")
-								.build();
 		
-		return new ResponseEntity<>(jsonHelper.toJson(patient), HttpStatus.OK);
+		return new ResponseEntity<>(jsonHelper.toJson(""), HttpStatus.OK);
 	}
 	
 }

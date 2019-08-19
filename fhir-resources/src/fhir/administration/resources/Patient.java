@@ -7,8 +7,10 @@ import fhir.administration.resources.datatypes.HumanName;
 import fhir.administration.resources.datatypes.Identifier;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
