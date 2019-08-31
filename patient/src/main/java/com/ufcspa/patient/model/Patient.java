@@ -1,4 +1,4 @@
-package fhir.administration.resources;
+package com.ufcspa.patient.model;
 
 import java.util.List;
 

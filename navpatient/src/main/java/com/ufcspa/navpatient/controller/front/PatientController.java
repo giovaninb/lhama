@@ -10,17 +10,16 @@ import com.ufcspa.navpatient.service.PatientService;
 import com.ufcspa.navpatient.service.rest.response.PatientResponse;
 
 @Controller
-@RequestMapping("/")
-public class HomeController {
+@RequestMapping("/patient")
+public class PatientController {
 	
 	@Autowired
 	private PatientService patientService;
 	
-	@RequestMapping("/home")
+	@RequestMapping("/new")
 	public String home() {
 		
 		List<PatientResponse> searchPatient = patientService.searchPatient();
-		
 		
 		return "home";
 	}
