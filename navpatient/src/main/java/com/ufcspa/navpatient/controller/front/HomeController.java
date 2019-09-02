@@ -19,7 +19,7 @@ public class HomeController {
 	@RequestMapping("/home")
 	public String home() {
 		
-		List<PatientResponse> searchPatient = patientService.searchPatient();
+//		List<PatientResponse> searchPatient = patientService.searchPatient();
 		
 		
 		return "home";
