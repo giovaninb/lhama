@@ -1,7 +1,6 @@
 package com.ufcspa.patient.model;
 
 import java.util.List;
-
 import fhir.administration.resources.datatypes.Address;
 import fhir.administration.resources.datatypes.HumanName;
 import fhir.administration.resources.datatypes.Identifier;
