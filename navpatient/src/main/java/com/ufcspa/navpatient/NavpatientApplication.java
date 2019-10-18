@@ -18,12 +18,4 @@ public class NavpatientApplication {
         return new RestTemplate();
     }
 	
-	@Bean
-	public InternalResourceViewResolver internalResourceViewResolver(){
-	    InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-	    resolver.setPrefix("/WEB-INF/views/");
-	    resolver.setSuffix(".jsp");
-	    return resolver;
-	}
-	
 }

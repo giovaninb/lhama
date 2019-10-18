@@ -70,86 +70,18 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td><button type="button" class="btn btn-link btn-sm">João
-											da Silva</button></td>
-									<td><button type="button" class="btn btn-link btn-sm">Fernanda
+							
+								<tr th:each="patient : ${patientList}">
+							         <td th:text="${patient.name}">...</td>
+						      		<td><button type="button" class="btn btn-link btn-sm">Fernanda
 											Flores</button></td>
 									<td><button type="button" class="btn btn-link btn-sm">5
 											dias</button></td>
 									<td><a href="#" class="btn btn-outline-danger btn-sm">Agendar
 											Consulta</a></td>
-								</tr>
-								<tr>
-									<td><button type="button" class="btn btn-link btn-sm">Maia
-											da Silva</button></td>
-									<td><button type="button" class="btn btn-link btn-sm">Fernanda
-											Flores</button></td>
-									<td><button type="button" class="btn btn-link btn-sm">5
-											dias</button></td>
-									<td><a href="#" class="btn btn-outline-danger btn-sm">Agendar
-											Consulta</a></td>
-								</tr>
-								<tr>
-									<td><button type="button" class="btn btn-link btn-sm">Cleusa
-											da Silva de Souza</button></td>
-									<td><button type="button" class="btn btn-link btn-sm">Fernanda
-											Flores</button></td>
-									<td><button type="button" class="btn btn-link btn-sm">5
-											dias</button></td>
-									<td><a href="#" class="btn btn-outline-danger btn-sm">Agendar
-											Consulta</a></td>
-								</tr>
-								<tr>
-									<td><button type="button" class="btn btn-link btn-sm">Cleusa
-											da Silva de Souza</button></td>
-									<td><button type="button" class="btn btn-link btn-sm">Fernanda
-											Flores</button></td>
-									<td><button type="button" class="btn btn-link btn-sm">5
-											dias</button></td>
-									<td><a href="#" class="btn btn-outline-danger btn-sm">Agendar
-											Consulta</a></td>
-								</tr>
-								<tr>
-									<td><button type="button" class="btn btn-link btn-sm">Cleusa
-											da Silva de Souza</button></td>
-									<td><button type="button" class="btn btn-link btn-sm">Fernanda
-											Flores</button></td>
-									<td><button type="button" class="btn btn-link btn-sm">5
-											dias</button></td>
-									<td><a href="#" class="btn btn-outline-danger btn-sm">Agendar
-											Consulta</a></td>
-								</tr>
-								<tr>
-									<td><button type="button" class="btn btn-link btn-sm">Cleusa
-											da Silva de Souza</button></td>
-									<td><button type="button" class="btn btn-link btn-sm">Fernanda
-											Flores</button></td>
-									<td><button type="button" class="btn btn-link btn-sm">5
-											dias</button></td>
-									<td><a href="#" class="btn btn-outline-danger btn-sm">Agendar
-											Consulta</a></td>
-								</tr>
-								<tr>
-									<td><button type="button" class="btn btn-link btn-sm">Cleusa
-											da Silva de Souza</button></td>
-									<td><button type="button" class="btn btn-link btn-sm">Fernanda
-											Flores</button></td>
-									<td><button type="button" class="btn btn-link btn-sm">5
-											dias</button></td>
-									<td><a href="#" class="btn btn-outline-danger btn-sm">Agendar
-											Consulta</a></td>
-								</tr>
-								<tr>
-									<td><button type="button" class="btn btn-link btn-sm">Cleusa
-											da Silva de Souza</button></td>
-									<td><button type="button" class="btn btn-link btn-sm">Fernanda
-											Flores</button></td>
-									<td><button type="button" class="btn btn-link btn-sm">5
-											dias</button></td>
-									<td><a href="#" class="btn btn-outline-danger btn-sm">Agendar
-											Consulta</a></td>
-								</tr>
+							   </tr>
+							
+							
 							</tbody>
 						</table>
 					</div>

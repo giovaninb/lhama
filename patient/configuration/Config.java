@@ -9,10 +9,10 @@ import lombok.Getter;
 @Configuration
 public class Config {
 	
-	@Value("${rest.patient.host}")
-	private String patientHost;
+	@Value("${rest.customer.host}}")
+	private String customerHost;
 	
-	@Value("${rest.patient.list}")
-	private String patientListPath;
+	@Value("${rest.customer.search}}")
+	private String patientSearchPath;
 
 }

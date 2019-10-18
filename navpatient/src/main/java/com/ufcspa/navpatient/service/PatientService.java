@@ -18,14 +18,11 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class PatientService {
 	
+	@Autowired
 	private Config config;
-	private RestTemplate restTemplate;
 	
 	@Autowired
-	public PatientService(RestTemplate restTemplate, Config config) {
-		this.restTemplate = restTemplate;
-		this.config = config;
-	}
+	private RestTemplate restTemplate;
 	
 	public List<PatientResponse> searchPatient(){
 		return searchPatient(null);
@@ -45,8 +42,8 @@ public class PatientService {
 	
 	private UriComponentsBuilder buildURICollector() {
 		UriComponentsBuilder builder = UriComponentsBuilder
-                .fromHttpUrl(config.getCustomerHost())
-                .path(config.getPatientSearchPath());
+                .fromHttpUrl(config.getPatientHost())
+                .path(config.getPatientListPath());
 		
 		log.info("Builded URI: {} ", builder.build().encode().toUri());
 		
