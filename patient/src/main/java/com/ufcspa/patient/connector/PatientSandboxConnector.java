@@ -1,6 +1,6 @@
 package com.ufcspa.patient.connector;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +8,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ufcspa.patient.configuration.PatientServiceConfiguration;
 import com.ufcspa.patient.model.Patient;
 
+import fhir.foundation.resources.Bundle;
+import fhir.foundation.resources.Entry;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -23,18 +27,26 @@ public class PatientSandboxConnector {
 	@Autowired
 	private RestTemplate restTemplate;
 	
-	public List<Patient> searchPatient(Patient patient){
-		return callPatientService();
+	public List<Patient> getPatients() {
+		List<Patient> patientList = new ArrayList<Patient>();
+		Bundle response = restTemplate.getForObject(buildURIPatientList(), Bundle.class);
+		for (Entry entry : response.getEntry()) {
+			ObjectMapper mapper = new ObjectMapper();
+			mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+			Patient patient = mapper.convertValue(entry.getResource(), Patient.class);
+			patientList.add(patient);
+		}
+		return patientList;
 	}
 	
-	private List<Patient> callPatientService() {
-		Patient response = restTemplate.getForObject(buildURICollector(), Patient.class);
-		return Arrays.asList(response);
-	}
-	
-	private String buildURICollector() {
+	private String buildURIPatientList() {
+		StringBuffer uri = new StringBuffer("http://hapi.fhir.org/baseR4");
+		uri.append("/Patient/");
+//		uri.append(6);	
+		uri.append("?_format=json");
+		
 		UriComponentsBuilder builder = UriComponentsBuilder
-                .fromHttpUrl("http://hapi.fhir.org/baseR4" + "/Patient/6?_format=json");
+                .fromHttpUrl(uri.toString());
 		
 		log.info("Builded URI: {} ", builder.build().toUri());
 		

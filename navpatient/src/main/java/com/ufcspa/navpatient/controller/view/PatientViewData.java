@@ -1,4 +1,4 @@
-package com.ufcspa.navpatient.controller.front.view;
+package com.ufcspa.navpatient.controller.view;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

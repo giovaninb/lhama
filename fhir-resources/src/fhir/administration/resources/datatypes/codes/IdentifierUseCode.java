@@ -9,11 +9,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public enum IdentifierUseCode {
 	
-	USUAL("usual", "Usual"),
-	OFFICIAL("official", "Official"),
-	TEMP("temp", "Temp"),
-	SECONDARY("secondary", "Secondary"),
-	OLD("old", "Old");
+	use("use", "Use"),
+	usual("usual", "Usual"),
+	official("official", "Official"),
+	temp("temp", "Temp"),
+	secondary("secondary", "Secondary"),
+	old("old", "Old");
 	
 	private String code;
 	private String display;

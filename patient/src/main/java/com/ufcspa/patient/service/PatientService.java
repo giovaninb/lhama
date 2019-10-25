@@ -23,7 +23,7 @@ public class PatientService {
 	}
 	
 	public List<Patient> getPatients(){
-		return patientSandboxConnector.searchPatient(null);
+		return patientSandboxConnector.getPatients();
 	}
 
 }

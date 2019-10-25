@@ -9,8 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.ufcspa.navpatient.configuration.Config;
-import com.ufcspa.navpatient.service.rest.request.CustomerRequest;
-import com.ufcspa.navpatient.service.rest.response.PatientResponse;
+import com.ufcspa.navpatient.service.rest.response.Patient;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,19 +23,15 @@ public class PatientService {
 	@Autowired
 	private RestTemplate restTemplate;
 	
-	public List<PatientResponse> searchPatient(){
-		return searchPatient(null);
-	}
-	
-	public List<PatientResponse> searchPatient(CustomerRequest customerRequest){
+	public List<Patient> getPatients(){
 		
 		UriComponentsBuilder uri = buildURICollector();
 		
-		return callPatientService(uri);
+		return callGetPatients(uri);
 	}
 	
-	private List<PatientResponse> callPatientService(UriComponentsBuilder builder) {
-		PatientResponse[] response = restTemplate.getForObject(builder.toUriString(), PatientResponse[].class);
+	private List<Patient> callGetPatients(UriComponentsBuilder builder) {
+		Patient[] response = restTemplate.getForObject(builder.toUriString(), Patient[].class);
 		return Arrays.asList(response);
 	}
 	

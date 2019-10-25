@@ -32,11 +32,11 @@
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
 
-		<dependency>
+		<!--  <dependency>
 			<groupId>com.zenvia.si</groupId>
 			<artifactId>si-arq</artifactId>
 			<version>1.0.2-SNAPSHOT</version>
-		</dependency>
+		</dependency>-->
 
 		<dependency>
 			<groupId>fhir-resources</groupId>

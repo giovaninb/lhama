@@ -1,4 +1,4 @@
-package com.ufcspa.navpatient.controller.front;
+package com.ufcspa.navpatient.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

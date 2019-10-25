@@ -1,6 +1,9 @@
 package com.ufcspa.patient.model;
 
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import fhir.administration.resources.datatypes.Address;
 import fhir.administration.resources.datatypes.HumanName;
 import fhir.administration.resources.datatypes.Identifier;
@@ -13,6 +16,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Patient {
 	
 	@Builder.Default
@@ -22,6 +26,6 @@ public class Patient {
 	private boolean active;
 	private List<HumanName> name;
 	private String birthDate;
-	private Address address;
+	private List<Address> address;
 
 }
