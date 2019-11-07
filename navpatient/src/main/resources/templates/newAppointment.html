@@ -25,12 +25,12 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarText">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Dashboard
+				<li class="nav-item active"><a class="nav-link" th:href="@{/home}">Dashboard
 						<span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Pacientes</a>
+				<li class="nav-item"><a class="nav-link" href="#">Patients</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="#">Navegadores</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Navigators</a></li>
 			</ul>
 			<span class="navbar-text"> Fernanda Flores </span>
 		</div>
@@ -45,11 +45,11 @@
 						<div class="container">
 							<div class="row">
 								<div>
-									<h2>Novo Paciente</h2>
+									<h2>New Appointment</h2>
 								</div>
-								<div class="col-9"></div>
+								<div class="col-8"></div>
 								<div>
-									<a href="#" class="btn btn-outline-secondary btn-sm">Voltar</a>
+									<a th:href="@{/home}" class="btn btn-outline-secondary btn-sm">Return</a>
 								</div>
 							</div>
 						</div>

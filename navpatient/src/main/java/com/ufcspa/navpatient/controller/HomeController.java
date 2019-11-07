@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ufcspa.navpatient.controller.view.PatientViewData;
 import com.ufcspa.navpatient.service.PatientService;
-import com.ufcspa.navpatient.service.rest.response.Patient;
+import com.ufcspa.navpatient.service.rest.Patient;
 
 import fhir.administration.resources.datatypes.HumanName;
 
@@ -36,8 +36,7 @@ public class HomeController {
 				name = buildPatientName(patientResponse.getName());
 			}
 			
-			PatientViewData patientDisplay = PatientViewData
-					.builder()
+			PatientViewData patientDisplay = PatientViewData.builder()
 						.name(name)
 					.build();
 			patientList.add(patientDisplay);
