@@ -22,13 +22,18 @@ public class PatientController {
 	@Autowired
 	private PatientService patientService;
 
-	@PostMapping(path= "/", consumes = "application/json", produces = "application/json")
 	@RequestMapping("/new")
 	public String addNewPatient() throws JsonProcessingException, IOException {
 		
-		patientService.postPatient();
-		
 		return "newPatient";
+	}
+	
+	@PostMapping()
+	public String saveNewPatient() throws JsonProcessingException, IOException {
+		
+//		patientService.postPatient();
+		
+		return "/home";
 	}
 	
 	private String buildPatientName(List<HumanName> names) {
