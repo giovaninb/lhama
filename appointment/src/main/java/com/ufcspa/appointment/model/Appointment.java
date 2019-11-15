@@ -25,21 +25,21 @@ public class Appointment {
 
 	@Builder .Default
 	private String resourceType = "Appointment";
-	private Identifier identifier;
+	private List<Identifier> identifier;
     private String id;
-    private Text text;
+//    private List<Text> text;
     private String status;
-    private List<AppointmentType> serviceCategory;
-    private List<ServiceType> serviceType;
+//    private List<AppointmentType> serviceCategory;
+//    private List<ServiceType> serviceType;
     private List<AppointmentType> specialty;
     private AppointmentType appointmentType;
-    private List<ReasonReference> reasonReference;
-    private long priority;
+//    private List<ReasonReference> reasonReference;
+//    private long priority;
     private String description;
     private String start;
     private String end;
     private String created;
     private String comment;
-    private List<BasedOn> basedOn;
-    private List<Participant> participant;
+//    private List<BasedOn> basedOn;
+//    private List<Participant> participant;
 }

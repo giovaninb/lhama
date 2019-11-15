@@ -2,7 +2,6 @@ package com.ufcspa.navpatient.service;
 
 import java.awt.PageAttributes.MediaType;
 import java.io.IOException;
-import java.net.http.HttpHeaders;
 import java.util.Arrays;
 import java.util.List;
 

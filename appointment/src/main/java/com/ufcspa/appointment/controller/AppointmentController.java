@@ -1,5 +1,7 @@
 package com.ufcspa.appointment.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,22 +15,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ufcspa.appointment.model.Appointment;
 import com.ufcspa.appointment.service.AppointmentService;
-import com.ufcspa.si.helper.JsonHelper;
 
 @RestController
 @RequestMapping("/Appointment")
 public class AppointmentController {
 
 	@Autowired
-	private JsonHelper jsonHelper;
-	
-	@Autowired
 	private AppointmentService appointmentService;
 	
 	@CrossOrigin
 	@GetMapping
-	public ResponseEntity<String> findCustomer(@PathVariable String id) throws Exception {
-		return new ResponseEntity<>(jsonHelper.toJson(""), HttpStatus.OK);
+	public ResponseEntity<List<Appointment>> listAppointments() throws Exception {
+		return new ResponseEntity<>(appointmentService.getAppointments(), HttpStatus.OK);
 	}
 	
 	@CrossOrigin

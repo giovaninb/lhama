@@ -1,10 +1,13 @@
 package com.ufcspa.navpatient.service.rest;
 
 import fhir.administration.resources.datatypes.CodeableConcept;
+
 import fhir.administration.resources.datatypes.Identifier;
 import fhir.administration.resources.datatypes.Text;
 
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import fhir.administration.resources.datatypes.AppointmentType;
 import fhir.administration.resources.datatypes.ServiceType;
@@ -25,7 +28,7 @@ public class Appointment {
 
 	@Builder .Default
 	private String resourceType = "Appointment";
-	private Identifier identifier;
+	private List<Identifier> identifier;
     private String id;
     private Text text;
     private String status;

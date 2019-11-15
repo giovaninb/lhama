@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class PatientViewData {
+public class AppointmentViewData {
 	
-	private String name;
+	private String description;
 	private String id;
 
 }

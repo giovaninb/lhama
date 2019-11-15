@@ -31,7 +31,7 @@ public class HomeController {
 		List<PatientViewData> patientList = new ArrayList<PatientViewData>();
 		
 		for (Patient patientResponse : searchPatient) {
-			String name = "";
+			String name = " ";
 			if(patientResponse.getName() != null) {
 				name = buildPatientName(patientResponse.getName());
 			}

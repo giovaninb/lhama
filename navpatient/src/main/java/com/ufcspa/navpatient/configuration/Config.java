@@ -14,5 +14,11 @@ public class Config {
 	
 	@Value("${rest.patient.list}")
 	private String patientListPath;
-
+	
+	@Value("${rest.appointment.host}")
+	private String appointmentHost;
+	
+	@Value("${rest.appointment.list}")
+	private String appointmentListPath;
+	
 }
