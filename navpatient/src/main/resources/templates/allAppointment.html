@@ -25,9 +25,10 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarText">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" th:href="@{/home}">Dashboard
-						<span class="sr-only">(current)</span>
-				</a></li>
+				<li class="nav-item active"><a class="nav-link" th:href="@{/home}">Dashboard</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/appointment/allAppointment}">All Appointments</a>
+					<span class="sr-only">(current)</span>
+				</li>
 				<li class="nav-item"><a class="nav-link" href="#">Patients</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="#">Navigators</a></li>
@@ -58,24 +59,26 @@
 
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">Last 10 Appointments Registered</h5>
+						<h5 class="card-title">Last Appointments Registered</h5>
 
 						<table class="table table-sm table-bordered text-center">
 							<thead class="thead-dark">
 								<tr>
-									<th scope="col">Appointment</th>
-									<th scope="col">Navigator</th>
-									<th scope="col">Last Contact</th>
-									<th scope="col">Actions</th>
+									<th scope="col">Appointment Description</th>
+									<th scope="col">Id</th>
+									<th scope="col">Start</th>
+									<th scope="col">End</th>
+									<th scope="col">Status</th>
 								</tr>
 							</thead>
 							<tbody>
 							
 								<tr th:each="appointment : ${appointmentList}">
 							        <td th:text="${appointment.description}">...</td>
-							        <td th:text="${appointment.description}">...</td>
-							        <td th:text="${appointment.description}">...</td>
-							        <td th:text="${appointment.description}">...</td>
+							        <td th:text="${appointment.id}">...</td>
+							        <td th:text="${appointment.start}">...</td>
+							        <td th:text="${appointment.end}">...</td>
+							        <td th:text="${appointment.status}">...</td>
 							   </tr>
 							
 							</tbody>

@@ -36,12 +36,16 @@ public class AppointmentController {
 
 		for (Appointment appointmentResponse : searchAppointment) {
 
-			if (appointmentResponse.getDescription() != null 
+			if (appointmentResponse.getDescription() != null
 					&& !appointmentResponse.getDescription().isEmpty()) {
 
 				AppointmentViewData appointmentDisplay = AppointmentViewData
 						.builder()
 							.description(appointmentResponse.getDescription())
+							.id(appointmentResponse.getId())
+							.start(appointmentResponse.getStart())
+							.end(appointmentResponse.getEnd())
+							.status(appointmentResponse.getStatus())
 						.build();
 				
 				appointmentList.add(appointmentDisplay);

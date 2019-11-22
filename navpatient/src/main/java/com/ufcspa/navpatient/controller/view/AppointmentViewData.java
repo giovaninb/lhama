@@ -12,6 +12,9 @@ import lombok.NoArgsConstructor;
 public class AppointmentViewData {
 	
 	private String description;
+	private String start;
+	private String end;
+	private String status;
 	private String id;
 
 }
