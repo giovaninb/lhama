@@ -2,6 +2,8 @@ package com.ufcspa.navpatient.controller;
 
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,10 @@ import com.ufcspa.navpatient.controller.view.NewPatientViewModel;
 import com.ufcspa.navpatient.service.PatientService;
 import com.ufcspa.navpatient.service.rest.Patient;
 
+import fhir.administration.resources.datatypes.HumanName;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
 @RequestMapping("/patient")
 public class PatientController {
@@ -25,18 +31,65 @@ public class PatientController {
 	private PatientService patientService;
 
 	@RequestMapping("/new")
-	public ModelAndView patient(ModelAndView model) {
+	public ModelAndView newPatient(ModelAndView model) {
+		log.info("Entrou no método: newPatient");
 		model.addObject("patient", new NewPatientViewModel());
 		model.setViewName(NEW_PATIENT_VIEW_NAME);
 		return model;
 	}
 	
+	/**
+	 * Esse método vai receber os atributos montados na interface.
+	 *
+	 * @param viewModel
+	 * @return
+	 * @throws JsonProcessingException
+	 * @throws IOException
+	 */
 	@PostMapping("/new")
-	public String saveNewPatient(@ModelAttribute Patient patient) throws JsonProcessingException, IOException {
+	public String saveNewPatient(@ModelAttribute NewPatientViewModel viewModel) throws JsonProcessingException, IOException {
 		
-//		patientService.postPatient();
+		Patient patient = fromNewPatientViewModelToPatient(viewModel);
+		patientService.createNewPatient(patient);
 		
 		return "/resultPatient";
+	}
+	
+	/**
+	 * Nesse método, tu precisa traduzir os dados que estão na interface para o teu objeto FHIR
+	 * @param viewModel
+	 * @return
+	 */
+	private Patient fromNewPatientViewModelToPatient(NewPatientViewModel viewModel) {
+		
+		List<HumanName> name = buildHumanName(viewModel.getFirstName(), viewModel.getLastName());
+		
+		Patient patient = Patient
+				.builder()
+					.name(name)				
+				.build();
+		
+		log.info("Informações do paciente: {} ", patient.toString());
+		
+		return patient;
+	}
+
+	/**
+	 * Neste método tu precisa preencher os dados de campo do nome.
+	 * Confirma se os dados chegaram até aqui através dos logs
+	 * 
+	 * @param firstName
+	 * @param lastName
+	 * @return
+	 */
+	private List<HumanName> buildHumanName(String firstName, String lastName) {
+		
+		List<String> names = Arrays.asList(firstName, lastName);
+		HumanName humanName = HumanName.builder().given(names).build();
+		
+		log.info("Detalhamento do HumanName: {} ", humanName);
+		
+		return Arrays.asList(humanName);
 	}
 	
 }

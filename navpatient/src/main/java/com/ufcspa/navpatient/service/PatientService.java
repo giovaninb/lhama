@@ -81,5 +81,17 @@ public class PatientService {
 		
 		return builder;
 	}
+	
+	/**
+	 * Aqui tu vai fazer uma chamada post para o método createPatient 
+	 * que vai estar na controller do microsservico patient (https://www.baeldung.com/spring-resttemplate-post-json)
+	 * 
+	 * @param patient
+	 */
+	public void createNewPatient(Patient patient) {
+		
+		
+		
+	}
 
 }
