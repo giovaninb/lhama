@@ -20,21 +20,16 @@ import com.ufcspa.navpatient.service.rest.Patient;
 @RequestMapping("/patient")
 public class PatientController {
 
+	private static final String NEW_PATIENT_VIEW_NAME = "newPatient.html";
 	@Autowired
 	private PatientService patientService;
 
 	@RequestMapping("/new")
-	public String patient(Model model) {
-		model.addAttribute("patient", new Patient());
-		return "newPatient";
+	public ModelAndView patient(ModelAndView model) {
+		model.addObject("patient", new NewPatientViewModel());
+		model.setViewName(NEW_PATIENT_VIEW_NAME);
+		return model;
 	}
-	
-//	public ModelAndView addNewPatient(ModelAndView model) throws JsonProcessingException, IOException {
-//		NewPatientViewModel patient = new NewPatientViewModel();
-//		model.addObject("patient", patient);
-//		model.setViewName("newPatient");
-//		return model;
-//	}
 	
 	@PostMapping("/new")
 	public String saveNewPatient(@ModelAttribute Patient patient) throws JsonProcessingException, IOException {

@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.1.RELEASE</version>
+		<version>2.2.1.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ufcspa</groupId>
@@ -17,6 +17,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 	</properties>
 
 	<dependencies>
@@ -35,11 +36,13 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -56,11 +59,9 @@
 		<dependency>
 		    <groupId>org.projectlombok</groupId>
 		    <artifactId>lombok</artifactId>
-		    <version>1.18.4</version>
 		    <scope>provided</scope>
 		</dependency>
 
-		
 	</dependencies>
 
 	<build>
@@ -71,5 +72,6 @@
 			</plugin>
 		</plugins>
 	</build>
+
 
 </project>
