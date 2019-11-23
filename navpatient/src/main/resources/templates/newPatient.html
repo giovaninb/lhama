@@ -28,6 +28,7 @@
 				<li class="nav-item active"><a class="nav-link" th:href="@{/home}">Dashboard
 						<span class="sr-only">(current)</span>
 				</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/appointment/allAppointment}">All Appointments</a>
 				<li class="nav-item"><a class="nav-link" href="#">Patients</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="#">Navigators</a></li>
@@ -57,7 +58,7 @@
 
 					</div>
 					<div class="card-body">
-						<form action="#" th:action="@{/patient}" th:object="${patient}" method="post">
+						<form th:action="@{/patient/new}" th:object="${patient}" method="post">
 							<div class="form-row">
 								<div class="form-group col-md-6">
 									<label for="firstName">First Name</label> <input type="text" th:field="*{firstName}"

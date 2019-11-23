@@ -13,7 +13,10 @@ public class NewPatientViewModel {
 	
 	private String firstName;
 	private String lastName;
-	private String address1;
-	private String address2;
+	private String inputAddress;
+	private String inputAddress2;
+	private String inputCity;
+	private String inputState;
+	private String inputZip;
 
 }
