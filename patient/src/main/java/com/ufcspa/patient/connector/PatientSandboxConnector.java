@@ -57,6 +57,7 @@ public class PatientSandboxConnector {
 			mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 			patient = mapper.convertValue(entry.getResource(), Patient.class);
 		}
+		log.info("Builded Body: {} ", patient);
 		return patient;
 	}
 	
