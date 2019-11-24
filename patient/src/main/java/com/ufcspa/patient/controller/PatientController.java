@@ -29,9 +29,9 @@ public class PatientController {
 	}
 	
 	@PostMapping
-	public RequestEntity<Patient> createPatient() {
+	public ResponseEntity<Patient> createPatient() {
 //		return new RequestEntity<>(patientService.saveUpdatePatient(), HttpMethod.POST);
-		return null;
+		return new ResponseEntity<>(patientService.saveUpdatePatient(), HttpStatus.OK);
 	}
 	
 }

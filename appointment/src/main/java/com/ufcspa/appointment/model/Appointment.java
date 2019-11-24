@@ -31,8 +31,8 @@ public class Appointment {
     private String status;
 //    private List<AppointmentType> serviceCategory;
 //    private List<ServiceType> serviceType;
-    private List<AppointmentType> specialty;
-    private AppointmentType appointmentType;
+//    private AppointmentType appointmentType;
+//    private List<AppointmentType> specialty;    
 //    private List<ReasonReference> reasonReference;
 //    private long priority;
     private String description;
