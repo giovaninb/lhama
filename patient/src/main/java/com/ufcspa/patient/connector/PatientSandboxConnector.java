@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -29,7 +32,7 @@ public class PatientSandboxConnector {
 	
 	public List<Patient> getPatients() {
 		List<Patient> patientList = new ArrayList<Patient>();
-		Bundle response = restTemplate.getForObject(buildURIPatientList(), Bundle.class);
+		Bundle response = restTemplate.getForObject(buildURIPatient(), Bundle.class);
 		for (Entry entry : response.getEntry()) {
 			ObjectMapper mapper = new ObjectMapper();
 			mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -39,10 +42,27 @@ public class PatientSandboxConnector {
 		return patientList;
 	}
 	
-	private String buildURIPatientList() {
+	public Patient createPatient() {
+		Patient patient = new Patient();
+		patient.setResourceType("Patient");
+	     
+	    HttpHeaders headers = new HttpHeaders();   
+	    headers.set("Content-Type", "application/fhir+json;charset=utf-8");      
+	 
+	    HttpEntity<Patient> requestObj = new HttpEntity<>(patient, headers);
+	    
+		Bundle request = restTemplate.postForObject(buildURIPatient(), requestObj, Bundle.class);
+		for (Entry entry : request.getEntry()) {
+			ObjectMapper mapper = new ObjectMapper();
+			mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+			patient = mapper.convertValue(entry.getResource(), Patient.class);
+		}
+		return patient;
+	}
+	
+	public String buildURIPatient() {
 		StringBuffer uri = new StringBuffer("http://hapi.fhir.org/baseR4");
 		uri.append("/Patient/");
-//		uri.append(6);	
 		uri.append("?_format=json");
 		
 		UriComponentsBuilder builder = UriComponentsBuilder

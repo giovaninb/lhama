@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.ufcspa.navpatient.controller.view.NewPatientViewModel;
+import com.ufcspa.navpatient.controller.view.PatientViewData;
 import com.ufcspa.navpatient.service.PatientService;
 import com.ufcspa.navpatient.service.rest.Patient;
 
@@ -33,7 +34,7 @@ public class PatientController {
 	@RequestMapping("/new")
 	public ModelAndView newPatient(ModelAndView model) {
 		log.info("Entrou no método: newPatient");
-		model.addObject("patient", new NewPatientViewModel());
+		model.addObject("patient", new PatientViewData());
 		model.setViewName(NEW_PATIENT_VIEW_NAME);
 		return model;
 	}
@@ -47,7 +48,7 @@ public class PatientController {
 	 * @throws IOException
 	 */
 	@PostMapping("/new")
-	public String saveNewPatient(@ModelAttribute NewPatientViewModel viewModel) throws JsonProcessingException, IOException {
+	public String saveNewPatient(@ModelAttribute PatientViewData viewModel) throws JsonProcessingException, IOException {
 		
 		Patient patient = fromNewPatientViewModelToPatient(viewModel);
 		patientService.createNewPatient(patient);
@@ -60,7 +61,7 @@ public class PatientController {
 	 * @param viewModel
 	 * @return
 	 */
-	private Patient fromNewPatientViewModelToPatient(NewPatientViewModel viewModel) {
+	private Patient fromNewPatientViewModelToPatient(PatientViewData viewModel) {
 		
 		List<HumanName> name = buildHumanName(viewModel.getFirstName(), viewModel.getLastName());
 		

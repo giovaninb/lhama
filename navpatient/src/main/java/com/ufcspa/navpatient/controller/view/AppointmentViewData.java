@@ -16,5 +16,8 @@ public class AppointmentViewData {
 	private String end;
 	private String status;
 	private String id;
+	private String created;
+	private String commented;
+	private String priority;
 
 }

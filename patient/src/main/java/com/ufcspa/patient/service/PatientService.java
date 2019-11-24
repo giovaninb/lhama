@@ -18,8 +18,9 @@ public class PatientService {
 	@Autowired
 	PatientSandboxConnector patientSandboxConnector;
 	
-	public Patient save(Patient patient) {
-		return patientRepository.save(patient);
+	public Patient saveUpdatePatient() {
+//		return patientRepository.save(patient);
+		return patientSandboxConnector.createPatient();
 	}
 	
 	public List<Patient> getPatients(){
