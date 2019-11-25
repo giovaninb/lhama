@@ -53,7 +53,7 @@ public class PatientController {
 		Patient patient = fromNewPatientViewModelToPatient(viewModel);
 		patientService.createNewPatient(patient);
 		
-		return "/resultPatient";
+		return "redirect:/patient/new";
 	}
 	
 	/**
