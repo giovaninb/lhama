@@ -22,6 +22,7 @@ public class Patient {
 	@Builder.Default
 	private String resourceType = "Patient";
 	 
+	private String id;
 	private List<Identifier> identifier;
 	private boolean active;
 	private List<HumanName> name;

@@ -27,4 +27,9 @@ public class PatientService {
 		return patientSandboxConnector.getPatients();
 	}
 
+	public Patient createPatientOnHaPI(Patient patient) {
+		return patientSandboxConnector.createPatientOnHaPI(patient);
+		
+	}
+
 }

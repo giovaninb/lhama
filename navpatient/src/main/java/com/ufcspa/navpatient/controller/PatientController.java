@@ -67,7 +67,8 @@ public class PatientController {
 		
 		Patient patient = Patient
 				.builder()
-					.name(name)				
+					.name(name)		
+					.birthDate(viewModel.getBirthDate())
 				.build();
 		
 		log.info("Informações do paciente: {} ", patient.toString());
@@ -85,8 +86,12 @@ public class PatientController {
 	 */
 	private List<HumanName> buildHumanName(String firstName, String lastName) {
 		
-		List<String> names = Arrays.asList(firstName, lastName);
-		HumanName humanName = HumanName.builder().given(names).build();
+		
+		HumanName humanName = HumanName
+				.builder()
+					.family(lastName)
+					.given(Arrays.asList(firstName))
+				.build();
 		
 		log.info("Detalhamento do HumanName: {} ", humanName);
 		
