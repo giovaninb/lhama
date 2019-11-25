@@ -50,33 +50,6 @@ public class PatientService {
 		return builder;
 	}
 
-//	public String postPatient() throws JsonProcessingException, IOException {
-//		UriComponentsBuilder uri = buildURICollector();
-//		return savePatient(uri);
-//	}
-//	
-//	public String savePatient(UriComponentsBuilder builder) throws JsonProcessingException, IOException {
-//		
-//		org.springframework.http.HttpHeaders httpHeaders = new org.springframework.http.HttpHeaders();
-//		httpHeaders.set("Content-Type", "application/json");
-//		
-//		RestTemplate restTemplate = new RestTemplate();
-//
-//		// Não sei se devo terminar de colocar os dados aqui
-//		Patient patient = new Patient();
-//        patient.setBirthDate("1996-11-05");
-//        ObjectMapper mapper = new ObjectMapper();
-//
-//        HttpEntity<String> request = new HttpEntity<>(mapper.writeValueAsString(patient), httpHeaders);
-//
-//        String response = restTemplate.postForObject(builder.toUriString(), request, String.class);
-//
-//        log.info("Builded URI:{} ", response);
-//        
-//        return response;
-//		
-//	}
-
 	/**
 	 * Aqui tu vai fazer uma chamada post para o método createPatient que vai estar
 	 * na controller do microsservico patient

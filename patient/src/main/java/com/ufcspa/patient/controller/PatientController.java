@@ -30,7 +30,8 @@ public class PatientController {
 	@CrossOrigin
 	@PostMapping("/new")
 	public ResponseEntity<Patient> createPatient(Patient patient) {
-		patientService.createPatientOnHaPI(patient);
+		Patient newPatient = patientService.createPatientOnHaPI(patient);
+		patient.setId(newPatient.getId());
 		return new ResponseEntity<Patient>(patient, HttpStatus.CREATED);
 	}
 }
