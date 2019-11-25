@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,7 +30,7 @@ public class PatientController {
 	
 	@CrossOrigin
 	@PostMapping("/new")
-	public ResponseEntity<Patient> createPatient(Patient patient) {
+	public ResponseEntity<Patient> createPatient(@RequestBody Patient patient) {
 		Patient newPatient = patientService.createPatientOnHaPI(patient);
 		patient.setId(newPatient.getId());
 		return new ResponseEntity<Patient>(patient, HttpStatus.CREATED);
