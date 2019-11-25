@@ -7,11 +7,11 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum AddressUseCode {
 	
-	HOME("home", "Home"),
-	WORK("work", "Work"),
-	TEMP("temp", "Temp"),
-	OLD("old", "Old"),
-	BILLING("billing", "Billing");
+	home("home", "Home"),
+	work("work", "Work"),
+	temp("temp", "Temp"),
+	old("old", "Old"),
+	billing("billing", "Billing");
 	
 	private String code;
 	private String display;

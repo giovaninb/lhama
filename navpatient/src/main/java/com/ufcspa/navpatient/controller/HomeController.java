@@ -14,7 +14,9 @@ import com.ufcspa.navpatient.service.PatientService;
 import com.ufcspa.navpatient.service.rest.Patient;
 
 import fhir.administration.resources.datatypes.HumanName;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Controller
 @RequestMapping("/home")
 public class HomeController {
@@ -52,10 +54,13 @@ public class HomeController {
 		
 		for (HumanName humanName : names) {
 				String given = "";
-				for (String givenName : humanName.getGiven()) {
-					given+=givenName;
+				log.info("GivenName: {} ", humanName.getGiven());
+				if(humanName.getGiven() != null) {
+					for (String givenName : humanName.getGiven()) {
+						given+=givenName;
+					}
+					name+= " " + given;
 				}
-				name+= " " + given;
 		}
 		return name;
 	}
