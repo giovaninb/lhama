@@ -2,6 +2,7 @@ package com.ufcspa.navpatient.controller;
 
 
 import java.io.IOException;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.ufcspa.navpatient.controller.view.NewPatientViewModel;
 import com.ufcspa.navpatient.controller.view.PatientViewData;
 import com.ufcspa.navpatient.service.PatientService;
 import com.ufcspa.navpatient.service.rest.Patient;
@@ -40,7 +40,7 @@ public class PatientController {
 	}
 	
 	/**
-	 * Esse método vai receber os atributos montados na interface.
+	 * Esse método recebe os atributos montados na interface.
 	 *
 	 * @param viewModel
 	 * @return
@@ -57,7 +57,7 @@ public class PatientController {
 	}
 	
 	/**
-	 * Nesse método, tu precisa traduzir os dados que estão na interface para o teu objeto FHIR
+	 * Tradução dos dados que estão na interface para um objeto FHIR
 	 * @param viewModel
 	 * @return
 	 */
@@ -77,8 +77,8 @@ public class PatientController {
 	}
 
 	/**
-	 * Neste método tu precisa preencher os dados de campo do nome.
-	 * Confirma se os dados chegaram até aqui através dos logs
+	 * Construção do nome do Paciente.
+	 * Confirmar se os dados chegaram até aqui através dos logs
 	 * 
 	 * @param firstName
 	 * @param lastName

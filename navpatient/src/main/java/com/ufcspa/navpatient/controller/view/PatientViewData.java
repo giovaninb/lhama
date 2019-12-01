@@ -14,8 +14,8 @@ public class PatientViewData {
 	private String name;
 	private String firstName;
 	private String lastName;
-	private String gender;
 	private String birthDate;
+	private String gender;
 	private String id;
 
 }

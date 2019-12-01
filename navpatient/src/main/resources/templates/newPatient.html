@@ -74,14 +74,14 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="gender">Gender</label> <input type="text"
-									th:field="*{gender}" class="form-control"
-									id="gender" placeholder="Patient gender">
-							</div>
-							<div class="form-group">
-								<label for="birthDate">Birth Date</label> <input type="text"
+								<label for="birthDate">Birth Date (YYYY-MM-dd)</label> <input type="text"
 									th:field="*{birthDate}" class="form-control"
 									id="birthDate" placeholder="Patient birth date">
+							</div>
+							<div class="form-group">
+								<label for="gender">Gender (male | female | other | unknown)</label> <input type="text"
+									th:field="*{gender}" class="form-control"
+									id="gender" placeholder="Patient gender">
 							</div>
 							
 							<button type="submit" class="btn btn-primary">Save Patient</button>

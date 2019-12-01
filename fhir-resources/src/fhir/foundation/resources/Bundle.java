@@ -1,7 +1,6 @@
 package fhir.foundation.resources;
 
 import java.util.List;
-
 import lombok.Data;
 
 @Data
@@ -12,3 +11,9 @@ public class Bundle {
 	public List<Entry> entry;
 	
 }
+
+
+
+
+
+

@@ -23,11 +23,11 @@ public class Patient {
 	private String resourceType = "Patient";
 	 
 	private String id;
-	private String gender;
 	private List<Identifier> identifier;
 	private boolean active;
 	private List<HumanName> name;
 	private String birthDate;
+	private String gender;
 	private List<Address> address;
 
 }

@@ -27,6 +27,8 @@ public class Patient {
 	private boolean active;
 	private List<HumanName> name;
 	private String birthDate;
+	private String gender;
 	private List<Address> address;
 
 }
+
